@@ -7,7 +7,7 @@ import (
 	"github.com/wilhelm-murdoch/go-play"
 )
 
-const playUrlPattern = `^https?:\/\/(www\.)?go\.dev\/play\/p\/\b[a-zA-Z0-9-]{11,}$`
+const playUrlPattern = `^https?:\/\/(www\.)?go\.dev\/play\/p\/\b[a-zA-Z0-9-_]{11,}$`
 
 var (
 	goCodes = [][]byte{

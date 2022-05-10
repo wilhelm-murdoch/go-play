@@ -56,7 +56,7 @@ func ExampleClient_Fetch_file() {
 func ExampleClient_FetchGroup_file() {
 	var (
 		bytes  [][]byte
-		files  = []string{"play.go", "config.go"}
+		files  = []string{"play_test.go", "config_test.go"}
 		client = play.NewClient(play.ConfigDefault)
 	)
 
