@@ -10,13 +10,15 @@ import (
 	"golang.org/x/sync/errgroup"
 )
 
-// Client
+// Client represents an HTTP and Config instance combo used to make calls to the
+// Go Playground.
 type Client struct {
-	http   http.Client
-	config Config
+	http   http.Client // An HTTP client used to dispatch requests to the Go Playground
+	config Config      // A configuration object used to compose Go Playground URLs
 }
 
-// NewClient
+// NewClient returns a new instance of struct Client using the specified Config
+// instance.
 func NewClient(config Config) Client {
 	client := http.Client{
 		Timeout: 60 * time.Second,
@@ -28,7 +30,10 @@ func NewClient(config Config) Client {
 	}
 }
 
-// FetchGroup
+// FetchGroup takes a slice of byte slices representing multiple snippets of
+// Go source code to process. This method makes use of the `errgroup` package
+// which utilises Goroutines to process multiple snippets concurrently. This
+// method stops on the first non-nil error response.
 func (c Client) FetchGroup(sources [][]byte) (result []string, err error) {
 	errors := new(errgroup.Group)
 
@@ -53,7 +58,9 @@ func (c Client) FetchGroup(sources [][]byte) (result []string, err error) {
 	return result, err
 }
 
-// Fetch
+// Fetch takes a single slice of bytes representing a snippet of Go source code
+// to process in the Go Playground. This method returns either an error or a
+// shareable Go Playground URL.
 func (c Client) Fetch(source []byte) (result string, err error) {
 	client := http.Client{
 		Timeout: 60 * time.Second,
