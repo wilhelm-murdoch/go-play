@@ -63,11 +63,7 @@ func (c Client) FetchGroup(sources [][]byte) (result []string, err error) {
 // to process in the Go Playground. This method returns either an error or a
 // shareable Go Playground URL.
 func (c Client) Fetch(source []byte) (result string, err error) {
-	client := http.Client{
-		Timeout: 60 * time.Second,
-	}
-
-	response, err := client.Post(c.config.GetPostUrl(), "raw", bytes.NewBuffer(source))
+	response, err := c.http.Post(c.config.GetPostUrl(), "raw", bytes.NewBuffer(source))
 	if err != nil {
 		return result, err
 	}
