@@ -33,7 +33,8 @@ func NewClient(config Config) Client {
 // FetchGroup takes a slice of byte slices representing multiple snippets of
 // Go source code to process. This method makes use of the `errgroup` package
 // which utilises Goroutines to process multiple snippets concurrently. This
-// method stops on the first non-nil error response.
+// method stops on the first non-nil error response. The order of resulting
+// slice of strings is not guaranteed.
 func (c Client) FetchGroup(sources [][]byte) (result []string, err error) {
 	errors := new(errgroup.Group)
 

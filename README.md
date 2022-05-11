@@ -52,10 +52,10 @@ GetShareUrl returns a formatted string representing the shareable play URL.
 NewClient returns a new instance of struct Client using the specified Config instance. 
 
 ### Function `FetchGroup`
-* `func (c Client) FetchGroup(sources [][]byte) (result []string, err error)` [#](play.go#L37)
-* `play.go:37:59` [#](play.go#L37-L59)
+* `func (c Client) FetchGroup(sources [][]byte) (result []string, err error)` [#](play.go#L38)
+* `play.go:38:60` [#](play.go#L38-L60)
 
-FetchGroup takes a slice of byte slices representing multiple snippets of Go source code to process. This method makes use of the `errgroup` package which utilises Goroutines to process multiple snippets concurrently. This method stops on the first non-nil error response. 
+FetchGroup takes a slice of byte slices representing multiple snippets of Go source code to process. This method makes use of the `errgroup` package which utilises Goroutines to process multiple snippets concurrently. This method stops on the first non-nil error response. The order of resulting slice of strings is not guaranteed. 
 
 ```go
 package main
@@ -100,8 +100,8 @@ func main() {
 // true
 ```
 ### Function `Fetch`
-* `func (c Client) Fetch(source []byte) (result string, err error)` [#](play.go#L64)
-* `play.go:64:77` [#](play.go#L64-L77)
+* `func (c Client) Fetch(source []byte) (result string, err error)` [#](play.go#L65)
+* `play.go:65:78` [#](play.go#L65-L78)
 
 Fetch takes a single slice of bytes representing a snippet of Go source code to process in the Go Playground. This method returns either an error or a shareable Go Playground URL. 
 
