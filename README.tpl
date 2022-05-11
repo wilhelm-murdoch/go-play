@@ -5,7 +5,7 @@
 [![Go report](https://goreportcard.com/badge/github.com/wilhelm-murdoch/go-play)](https://goreportcard.com/report/github.com/wilhelm-murdoch/go-play)
 [![Stability: Active](https://masterminds.github.io/stability/active.svg)](https://masterminds.github.io/stability/active.html)
 
-A package used for automating the generation of Go Playground shareable URLs. Give it some Go code in the form of `[]bytes` and it returns a URL in one of the following formats:
+A package used for automating the generation of [Go Playground](https://go.dev/play/) shareable URLs. Give it some Go code in the form of `[]bytes` and it returns a URL in one of the following formats:
 
 ```
 https://go.dev/play/p/MAohLsrz7JQ
