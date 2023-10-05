@@ -3,8 +3,7 @@ package play
 import "fmt"
 
 var (
-	ConfigDefault    = NewConfig("https://go.dev", "_/share", "play/p")  // A configuration representing default values for the current Go Playground.
-	ConfigDeprecated = NewConfig("http://play.golang.org", "share", "p") // A configuration representing the deprecated Go Playground.
+	ConfigDefault = NewConfig("https://go.dev", "_/share", "play/p") // A configuration representing default values for the current Go Playground.
 )
 
 // Config exposes URL patterns used to interact with various versions of the
